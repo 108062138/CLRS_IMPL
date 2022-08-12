@@ -85,4 +85,10 @@ int main(){
     int n;
     cin >> n;
     heapSort  HSC(n);
+    vector<int> tmp(1111,0);
+    for(auto& x:tmp)
+        x = rand()%1024;
+    HSC.buildMaxHeap(tmp);
+    if(HSC.cmp(tmp))cout<<"save heap"<<endl;
+    else cout<<"fuck up"<<endl;
 }
