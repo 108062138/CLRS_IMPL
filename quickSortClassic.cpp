@@ -12,6 +12,26 @@ private:
     int offset;
 public:
     int sz;
+    int RAND(int min,int max){
+        int range = max - min + 1;
+        int num = rand() % range + min;
+        return num;
+    }
+    int RANDPARTITION(int p,int r){
+        int someWhere = RAND(p,r);
+        swap(A[someWhere],A[r]);
+        int x = A[r];//the pivot
+        int i = p-1;
+        for(int j = p;j<=r-1;j++){
+            if(A[j]<=x){
+                i++;
+                swap(A[i],A[j]);
+            }
+        }
+        swap(A[i+1],A[r]);
+
+        return i+1;
+    }
     int PARTITION(int p,int r){
         int x = A[r];//the pivot
         int i = p-1;
